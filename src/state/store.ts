@@ -1,7 +1,9 @@
 import storageSession from "redux-persist/lib/storage/session";
 import { persistReducer, persistStore } from "redux-persist";
-import { AnyAction, combineReducers, createStore, Store } from "redux";
-import { devToolsEnhancer } from "redux-devtools-extension";
+import { combineReducers } from "redux";
+
+import quizReducer from "./quiz";
+import { configureStore } from "@reduxjs/toolkit";
 
 const persistConfig = {
   key: "quiz-flow-boilerplate",
@@ -9,14 +11,27 @@ const persistConfig = {
 };
 
 export const configStore = () => {
-  const persistedReducer = persistReducer(persistConfig, combineReducers({}));
-  let store: Store<{}, AnyAction> = createStore(
-    persistedReducer,
-    devToolsEnhancer({})
+  const persistedReducer = persistReducer(
+    persistConfig,
+    combineReducers({
+      quiz: quizReducer,
+    })
   );
+  const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
+  });
 
   return {
     store,
     persistor: persistStore(store),
   };
 };
+
+export const { store, persistor } = configStore();
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -1,10 +1,12 @@
-export const MOCK_DATA = {
+import { ApiResponse, QuestionTypes } from "../types";
+
+export const MOCK_DATA: ApiResponse = {
   data: {
     name: "test-day",
     slug: "test-day",
     questions: [
       {
-        type: "single",
+        type: QuestionTypes.Single,
         options: [
           { label: "Losing Weight", value: "losing_weight" },
           {
@@ -18,7 +20,7 @@ export const MOCK_DATA = {
         key: "primary_goal",
       },
       {
-        type: "multiple",
+        type: QuestionTypes.Multiple,
         options: [
           {
             label: "Breast form",
@@ -51,7 +53,7 @@ export const MOCK_DATA = {
         key: "body_areas",
       },
       {
-        type: "single",
+        type: QuestionTypes.Single,
         options: [
           { label: "Yes", value: "yes" },
           { label: "No", value: "no" },
@@ -60,7 +62,7 @@ export const MOCK_DATA = {
         key: "back_pain",
       },
       {
-        type: "multiple",
+        type: QuestionTypes.Multiple,
         options: [
           { label: "Anxiety or depression", value: "anxiety_or_depression" },
           { label: "Face skin problems", value: "face_skin_problems" },
@@ -81,7 +83,7 @@ export const MOCK_DATA = {
         key: "concerns",
       },
       {
-        type: "single",
+        type: QuestionTypes.Single,
         options: [
           { label: "I would love to!", value: "i_would_love_to" },
           { label: "I would like to try", value: "i_would_like_to_try" },
@@ -91,7 +93,7 @@ export const MOCK_DATA = {
         key: "excercising",
       },
       {
-        type: "single",
+        type: QuestionTypes.Single,
         options: [
           {
             label: "Yes",
@@ -111,7 +113,7 @@ export const MOCK_DATA = {
         key: "diastasis_recti",
       },
       {
-        type: "multiple",
+        type: QuestionTypes.Multiple,
         options: [
           {
             label: "Flexibility",
@@ -144,7 +146,7 @@ export const MOCK_DATA = {
         key: "workouts",
       },
       {
-        type: "single",
+        type: QuestionTypes.Single,
         options: [
           { label: "Yes", value: "yes" },
           { label: "No", value: "no" },
@@ -153,14 +155,14 @@ export const MOCK_DATA = {
         key: "breastfeeding",
       },
       {
-        type: "info",
+        type: QuestionTypes.Info,
         label: "Did you know?",
         description:
           "Low impact exercises are completely &amp;lt;b&amp;gt;safe&amp;lt;/b&amp;gt; during breastfeeding and do not affect the milk supply or taste.",
         key: "info_block",
       },
       {
-        type: "multiple",
+        type: QuestionTypes.Multiple,
         options: [
           {
             label: "Lactose",
